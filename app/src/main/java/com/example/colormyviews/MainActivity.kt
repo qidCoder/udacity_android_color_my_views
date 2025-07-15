@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +23,10 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.box_three_text),
             findViewById(R.id.box_four_text),
             findViewById(R.id.box_five_text),
-            findViewById(R.id.constraint_layout)
+            findViewById(R.id.constraint_layout),
+            findViewById(R.id.red_button),
+            findViewById(R.id.yellow_button),
+            findViewById(R.id.green_button),
         )
 
         for (view in clickableviews) {
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three_text -> view.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light))
             R.id.box_four_text -> view.setBackgroundColor(getResources().getColor(android.R.color.holo_green_dark))
             R.id.box_five_text -> view.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light))
+
+            // using custom colors
+            R.id.red_button -> findViewById<View?>(R.id.box_three_text).setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> findViewById<View?>(R.id.box_four_text).setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> findViewById<View?>(R.id.box_five_text).setBackgroundResource(R.color.my_green)
 
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
